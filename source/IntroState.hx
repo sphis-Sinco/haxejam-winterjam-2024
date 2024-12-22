@@ -112,7 +112,11 @@ class IntroState extends FlxState
         add(logo);
 
         FlxTween.tween(logo, {y: FlxG.height * 2}, 3.25, {
-            ease: FlxEase.expoIn
+			ease: FlxEase.expoIn,
+			onComplete: _tween ->
+			{
+				FlxG.switchState(new PlayState());
+			}
         });
 	}
 	
