@@ -62,7 +62,14 @@ class IntroState extends FlxState
 	
 	private function timerCallback(Timer:FlxTimer):Void
 	{
-		_functions[_curPart]();
+		try
+		{
+			_functions[_curPart]();
+		}
+		catch (e)
+		{
+			trace('${e.message}: $_curPart');
+		}
 		_curPart++;
 		
 		if (_curPart == 5)
@@ -75,8 +82,7 @@ class IntroState extends FlxState
 	
 	private function addText1():Void
 	{
-		//stuff that happens
-        text.screenCenter();
+		// stuff that happens
 	}
 	
 	private function addText2():Void
