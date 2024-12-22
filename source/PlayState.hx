@@ -31,7 +31,10 @@ class PlayState extends FlxState
 			player.animation.play('idle');
 
 		if (FlxG.keys.justReleased.SPACE)
+		{
 			player.animation.play('eat');
+			FlxG.sound.play("assets/sounds/fish.wav", 1, false, null, true);
+		}
 
 		super.update(elapsed);
 	}
